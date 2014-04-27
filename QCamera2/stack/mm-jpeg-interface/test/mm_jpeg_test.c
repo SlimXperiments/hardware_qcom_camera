@@ -29,6 +29,7 @@
 
 #include "mm_jpeg_interface.h"
 #include "mm_jpeg_ionbuf.h"
+#include <sys/cdefs.h>
 #include <sys/time.h>
 
 /** DUMP_TO_FILE:
@@ -81,8 +82,8 @@ typedef struct {
 } mm_jpeg_intf_test_t;
 
 static void mm_jpeg_encode_callback(jpeg_job_status_t status,
-  uint32_t client_hdl,
-  uint32_t jobId,
+  uint32_t client_hdl __unused,
+  uint32_t jobId __unused,
   mm_jpeg_output_t *p_output,
   void *userData)
 {
@@ -319,7 +320,7 @@ end:
  *       main function
  *
  **/
-int main(int argc, char* argv[])
+int main(int argc __unused, char* argv[] __unused)
 {
   return encode_test(&jpeg_input[0]);
 }
